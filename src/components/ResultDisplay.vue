@@ -30,12 +30,15 @@ export default {
   setup(props) {
     const prettyJson = computed(() => {
       if (props.resultType !== 'json') return ''
-      return JSON.stringify(props.result, null, 2)
+      try {        
+        return JSON.stringify(JSON.parse(props.result))
+      } catch {        
+        return JSON.stringify(props.result)
+      }
     })
 
     const formatText = (text) => {
       if (!text) return ''
-      // Convert **bold** to <strong>bold</strong>
       return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     }
 
