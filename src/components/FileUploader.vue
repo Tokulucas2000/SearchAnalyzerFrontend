@@ -1,7 +1,7 @@
 <template>
   <div class="file-uploader">
     <label for="csv-upload" class="upload-label">
-      <span v-if="!file">Select CSV File</span>
+      <span v-if="!file">Selecione o arquivo CSV</span>
       <span v-else>File selected: {{ file.name }}</span>
       <input 
         id="csv-upload" 
